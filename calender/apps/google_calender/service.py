@@ -22,7 +22,7 @@ class GoogleAuthService:
     @classmethod
     def get_events(cls, access_token):
         try:
-            headers = {"Authorization": f"Bearer {access_token}f"}
+            headers = {"Authorization": f"Bearer {access_token}"}
             events_response = requests.get(settings.EVENTS_URL, headers=headers)
             events = events_response.json()["items"]
             return events

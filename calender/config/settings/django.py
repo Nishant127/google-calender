@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "google_calender",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
@@ -131,7 +132,7 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-REDIRECT_URI = "http://127.0.0.1:8000"
+REDIRECT_URI = "http://127.0.0.1:8000/rest/v1/calender/redirect/"
 SCOPE = "https://www.googleapis.com/auth/calendar.readonly"
 AUTH_URL = "https://accounts.google.com/o/oauth2/auth"
 TOKEN_URL = "https://oauth2.googleapis.com/token"

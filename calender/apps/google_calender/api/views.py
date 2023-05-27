@@ -12,7 +12,7 @@ class GoogleCalendarInitView(APIView):
         return redirect(auth_url)
 
 
-class GoogleCaledarRedirectView(APIView):
+class GoogleCalendarRedirectView(APIView):
     def get(self, request):
         code = request.query_params["code"]
         access_token = GoogleAuthService.get_access_token(code)
