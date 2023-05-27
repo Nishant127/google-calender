@@ -1,6 +1,6 @@
 from django.conf import settings
 import requests
-from .exceptions import ACCESS_TOKEN_EXCEPTION
+from .exceptions import ACCESS_TOKEN_EXCEPTION, EVENTS_EXCEPTION
 
 
 class GoogleAuthService:
@@ -18,3 +18,13 @@ class GoogleAuthService:
             return _response.json()["access_token"]
         except:
             raise ACCESS_TOKEN_EXCEPTION(_response.json()["error"])
+
+    @classmethod
+    def get_events(cls, access_token):
+        try:
+            headers = {"Authorization": f"Bearer {access_token}f"}
+            events_response = requests.get(settings.EVENTS_URL, headers=headers)
+            events = events_response.json()["items"]
+            return events
+        except:
+            raise EVENTS_EXCEPTION(events_response.json()["error"]["message"])

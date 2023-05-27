@@ -135,5 +135,6 @@ REDIRECT_URI = "http://127.0.0.1:8000"
 SCOPE = "https://www.googleapis.com/auth/calendar.readonly"
 AUTH_URL = "https://accounts.google.com/o/oauth2/auth"
 TOKEN_URL = "https://oauth2.googleapis.com/token"
+EVENTS_URL = "https://www.googleapis.com/calendar/v3/calendars/primary/events"
 GOOGLE_CLIENT_ID = env("GOOGLE_CLIENT_ID")
 GOGGLE_CLIENT_SECRET = env("GOGGLE_CLIENT_SECRET")

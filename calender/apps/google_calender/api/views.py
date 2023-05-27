@@ -16,4 +16,5 @@ class GoogleCaledarRedirectView(APIView):
     def get(self, request):
         code = request.query_params["code"]
         access_token = GoogleAuthService.get_access_token(code)
-        return response.Response(data={"access_token": access_token})
+        events = GoogleAuthService.get_events(access_token)
+        return response.Response(data={"Events": events})
