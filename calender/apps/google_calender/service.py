@@ -1,5 +1,6 @@
 from django.conf import settings
 import requests
+from .exceptions import ACCESS_TOKEN_EXCEPTION
 
 
 class GoogleAuthService:
@@ -14,6 +15,6 @@ class GoogleAuthService:
                 "grant_type": "authorization_code",
             }
             _response = requests.post(settings.TOKEN_URL, data=data)
-            return _response.json().get("access_token")
+            return _response.json()["access_token"]
         except:
-            pass
+            raise ACCESS_TOKEN_EXCEPTION(_response.json()["error"])
